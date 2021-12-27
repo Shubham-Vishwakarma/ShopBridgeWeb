@@ -9,3 +9,7 @@ mat-toolbar {
 .temp-spacer {
   flex: 1 1 auto;
 }
+
+.toolbar-icon {
+  margin-left: 16px;
+}

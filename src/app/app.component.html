@@ -1,12 +1,18 @@
 <mat-toolbar color="primary">
-  <span id="logoHeader">Shopbridge</span>
+  <span id="logoHeader" [routerLink]="['/']" >Shopbridge</span>
   <span class="temp-spacer"></span>
   <button
+    class="toolbar-icon"
     mat-icon-button
     aria-label="Shopping Cart Icon"
   >
     <mat-icon matBadge="2" matBadgeColor="warn" >shopping_cart</mat-icon>
   </button>
+  <a
+    class="toolbar-icon"
+    mat-flat-button [routerLink]="['/login']">
+    Login
+  </a>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
