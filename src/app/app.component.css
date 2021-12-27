@@ -1,0 +1,11 @@
+mat-toolbar {
+  margin-bottom: 16px;
+}
+
+#logoHeader {
+  cursor: pointer;
+}
+
+.temp-spacer {
+  flex: 1 1 auto;
+}
