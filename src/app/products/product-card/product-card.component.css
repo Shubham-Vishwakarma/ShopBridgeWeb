@@ -16,6 +16,16 @@
   width: 100%;
 }
 
+.product-card a {
+  color: #000;
+  text-decoration: none;
+}
+
+.product-card a:hover {
+  color: blue;
+  text-decoration: none;
+}
+
 .product-card mat-card-actions {
   margin-top: auto;
   padding: 8px;
