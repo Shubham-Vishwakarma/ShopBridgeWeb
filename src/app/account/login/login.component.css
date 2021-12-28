@@ -1,3 +1,16 @@
+.loginFormContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 600px) {
+  .loginForm {
+    padding: 16px;
+    width: 50%;
+  }
+}
 
 .loginForm mat-form-field {
   width: 100%;

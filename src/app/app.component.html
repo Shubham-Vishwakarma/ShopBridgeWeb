@@ -8,11 +8,17 @@
   >
     <mat-icon matBadge="2" matBadgeColor="warn" >shopping_cart</mat-icon>
   </button>
-  <a
+  <a *ngIf="!isAuthenticated"
     class="toolbar-icon"
     mat-flat-button [routerLink]="['/login']">
     Login
   </a>
+  <button *ngIf="isAuthenticated"
+    class="toolbar-icon"
+    mat-flat-button
+    (click)="logout()">
+    Logout
+</button>
 </mat-toolbar>
 
 <div class="main">

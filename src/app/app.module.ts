@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './account/login/login.component';
 import { RegisterComponent } from './account/register/register.component';
-import { LayoutComponent } from './account/layout/layout.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductCardComponent } from './products/product-card/product-card.component';
 
@@ -18,7 +17,6 @@ import { ProductCardComponent } from './products/product-card/product-card.compo
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    LayoutComponent,
     ProductsComponent,
     ProductCardComponent,
   ],
