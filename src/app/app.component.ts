@@ -11,15 +11,14 @@ export class AppComponent implements OnInit{
 
   title = 'shopbridgeweb';
 
-  constructor(private productService: ProductService) {
 
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.productService.getData()
-      .subscribe((products: Product[]) => {
-        console.log(products);
-      });
-    ;
+
+
+
   }
+
 }

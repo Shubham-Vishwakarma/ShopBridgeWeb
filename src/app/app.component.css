@@ -2,6 +2,20 @@ mat-toolbar {
   margin-bottom: 16px;
 }
 
+@media screen and (min-width: 320px) {
+  .main {
+    width: 90%;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .main {
+    width: 80%;
+    margin: auto;
+  }
+}
+
 #logoHeader {
   cursor: pointer;
 }

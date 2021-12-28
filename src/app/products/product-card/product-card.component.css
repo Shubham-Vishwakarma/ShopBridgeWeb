@@ -1,0 +1,31 @@
+.product-card {
+  width: 300px;
+  height: 300px;
+  margin: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card-image {
+  width: 300px;
+  height: 170px;
+  overflow: hidden;
+}
+
+.product-card-image img {
+  width: 100%;
+}
+
+.product-card mat-card-actions {
+  margin-top: auto;
+  padding: 8px;
+}
+
+.product-card mat-card-actions div {
+  text-align: center;
+}
+
+.product-card button {
+  width: 140px;
+  height: 50px;
+}

@@ -1,0 +1,18 @@
+<mat-card class="product-card">
+  <mat-card-content>
+    <div class="product-card-image">
+      <img src="https://m.media-amazon.com/images/I/41ZtfBP1C6L._AC_SY879_.jpg" alt="product-image" />
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions >
+    <mat-card-title>{{ product.name }}</mat-card-title>
+    <mat-card-subtitle>{{ product.price | currency:'INR' }}</mat-card-subtitle>
+    <mat-card-title>{{ product.quantity > 0 ? '' : 'Out of Stock' }}</mat-card-title>
+    <div *ngIf="product.quantity > 0">
+      <button mat-raised-button color="primary">Add to Cart</button>
+      <button mat-raised-button color="warn" >Buy Now</button>
+    </div>
+  </mat-card-actions>
+
+</mat-card>
