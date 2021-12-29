@@ -17,15 +17,9 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.authenticationService.currentUserSubject.subscribe((x : any) => {
-      this.currentUser = x.value;
-    });
-    if(localStorage.getItem("currentUser") == null){
-      this.isAuthenticated = false;
-    }
-    else {
-      this.isAuthenticated = true;
-    }
+    this.authenticationService.getAuthStatus();
+    this.isAuthenticated = this.authenticationService.isAuthenticated;
+    this.authenticationService.getAuthStateListener().subscribe((x : boolean) => { this.isAuthenticated = x });
   }
 
   logout() {

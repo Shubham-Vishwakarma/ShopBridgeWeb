@@ -1,22 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators'
+import { map, catchError } from 'rxjs/operators'
 import { User } from 'src/app/models/user';
-import { Observable } from 'rxjs';
-import { BehaviorSubject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  currentUserSubject: BehaviorSubject<User | null>;
-  currentUser: Observable<User | null>;
+  private authStatusListener = new Subject<boolean>()
   isAuthenticated = false;
 
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<User | null>(JSON.parse(this.getLocalUser()));
-    this.currentUser = this.currentUserSubject.asObservable();
   }
 
   private getLocalUser(): string {
@@ -26,26 +22,47 @@ export class AuthenticationService {
     return '{}';
   }
 
-  public get currentUserValue(): User | null {
-    return this.currentUserSubject.value;
+  public getAuthStatus() {
+    const u: string = this.getLocalUser();
+    const token: string | null= localStorage.getItem('currentToken');
+    const user: User | null = JSON.parse(u);
+    if(user && user.token === token) {
+      this.isAuthenticated = true;
+    }
   }
 
-  login(email: string, password: string): Observable<User> {
+  public getAuthStateListener(): Observable<boolean> {
+    return this.authStatusListener.asObservable();
+  }
+
+  login(email: string, password: string) {
     return this.http
-        .post<User>
-        ('http://localhost:5135/api/Auth/login',
-        {email, password})
-        .pipe(map((user: User) => {
-          localStorage.setItem('currentUser', JSON.stringify(user));
-          this.currentUserSubject.next(user);
+        .post<User>('http://localhost:5135/api/Auth/login',{email, password})
+        .subscribe((result: User) => {
+          this.saveAuthData(result);
+          this.authStatusListener.next(true)
           this.isAuthenticated = true;
-          return user;
-        }));
+        },
+        (error: any) => {
+          this.authStatusListener.next(false)
+          this.isAuthenticated = false;
+        });
   }
 
   logout() {
-    localStorage.removeItem('currentUser');
-    this.currentUserSubject.next(null);
+    this.clearAuthData();
+    this.authStatusListener.next(false);
     this.isAuthenticated = false;
   }
+
+  saveAuthData(user: User) {
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    localStorage.setItem('currentToken', user.token);
+  }
+
+  clearAuthData() {
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('currentToken');
+  }
+
 }

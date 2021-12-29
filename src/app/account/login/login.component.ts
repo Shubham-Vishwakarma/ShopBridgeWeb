@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../services/auth/authentication.service'
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-login',
@@ -35,14 +36,15 @@ export class LoginComponent implements OnInit {
     this.loading = true;
 
     this.authService.login(this.formData.value.email, this.formData.value.password)
-      .subscribe(
-          (data : any) => {
-            this.loading = false; console.log(data);
-            this.router.navigate(['/']);
-          },
-          (error) => {
-            this.loading = false;
-          });
+    this.authService.getAuthStateListener().subscribe((r: boolean) => {
+        if(r) {
+          this.loading = false;
+          this.router.navigate(["/"]);
+        }
+        else {
+          this.loading = false;
+        }
+      });
 
   }
 }
