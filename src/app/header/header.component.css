@@ -2,6 +2,13 @@ mat-toolbar {
   margin-bottom: 16px;
 }
 
+@media screen and (min-width: 600px) {
+  mat-toolbar {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+
 #logoHeader {
   cursor: pointer;
 }
