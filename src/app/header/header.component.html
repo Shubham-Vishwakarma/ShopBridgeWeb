@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
-  <span id="logoHeader" [routerLink]="['/']" >Shopbridge</span>
+  <span id="logoHeader" [routerLink]="['/']" ><i>Shop Bridge</i></span>
   <span class="temp-spacer"></span>
-  <button
+  <button *ngIf="isAuthenticated"
     class="toolbar-icon"
     mat-icon-button
     aria-label="Shopping Cart Icon"

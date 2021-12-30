@@ -12,6 +12,7 @@ import { RegisterComponent } from './account/register/register.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductCardComponent } from './products/product-card/product-card.component';
 import { HeaderComponent } from './header/header.component';
+import { ProductSingleComponent } from './products/product-single/product-single.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HeaderComponent } from './header/header.component';
     ProductsComponent,
     ProductCardComponent,
     HeaderComponent,
+    ProductSingleComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,20 +1,11 @@
-<mat-card class="product-card">
+<mat-card class="product-card" [routerLink]="['/product/', product.id]">
   <mat-card-content>
     <div class="product-card-image">
       <img src="https://m.media-amazon.com/images/I/41ZtfBP1C6L._AC_SY879_.jpg" alt="product-image" />
     </div>
   </mat-card-content>
-
-  <mat-card-actions >
-    <a [routerLink]="['/login']">
+  <div class="product-card-details">
       <mat-card-title>{{ product.name }}</mat-card-title>
-    </a>
     <mat-card-subtitle>{{ product.price | currency:'INR' }}</mat-card-subtitle>
-    <mat-card-title>{{ product.quantity > 0 ? '' : 'Out of Stock' }}</mat-card-title>
-    <div *ngIf="product.quantity > 0">
-      <button mat-raised-button color="primary">Add to Cart</button>
-      <button mat-raised-button color="warn" >Buy Now</button>
-    </div>
-  </mat-card-actions>
-
+  </div>
 </mat-card>
