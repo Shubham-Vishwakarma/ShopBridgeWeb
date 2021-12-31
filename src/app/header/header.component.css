@@ -9,6 +9,7 @@ mat-toolbar {
   }
 }
 
+
 #logoHeader {
   cursor: pointer;
   font-size: 1.5em;
@@ -20,4 +21,9 @@ mat-toolbar {
 
 .toolbar-icon {
   margin-left: 16px;
+}
+
+.toolbar-dropdown {
+  display: flex;
+  flex-wrap: nowrap;
 }

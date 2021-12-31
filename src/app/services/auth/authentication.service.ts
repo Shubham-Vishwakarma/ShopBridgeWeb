@@ -10,6 +10,7 @@ import { Subject, Observable } from 'rxjs';
 export class AuthenticationService {
 
   private authStatusListener = new Subject<boolean>()
+  user: User | null = null;
   isAuthenticated = false;
 
   constructor(private http: HttpClient) {
@@ -28,6 +29,7 @@ export class AuthenticationService {
     const user: User | null = JSON.parse(u);
     if(user && user.token === token) {
       this.isAuthenticated = true;
+      this.user = user
     }
   }
 
@@ -44,6 +46,7 @@ export class AuthenticationService {
           this.isAuthenticated = true;
         },
         (error: any) => {
+          this.user = null;
           this.authStatusListener.next(false)
           this.isAuthenticated = false;
         });
@@ -56,11 +59,13 @@ export class AuthenticationService {
   }
 
   saveAuthData(user: User) {
+    this.user = user;
     localStorage.setItem('currentUser', JSON.stringify(user));
     localStorage.setItem('currentToken', user.token);
   }
 
   clearAuthData() {
+    this.user = null;
     localStorage.removeItem('currentUser');
     localStorage.removeItem('currentToken');
   }

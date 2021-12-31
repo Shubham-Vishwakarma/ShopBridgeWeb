@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatSelectModule } from '@angular/material/select'
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatCardModule,
     MatProgressBarModule,
     MatToolbarModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatSelectModule
   ],
   exports: [
     MatFormFieldModule,
@@ -27,7 +29,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatCardModule,
     MatProgressBarModule,
     MatToolbarModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatSelectModule
   ]
 })
 
