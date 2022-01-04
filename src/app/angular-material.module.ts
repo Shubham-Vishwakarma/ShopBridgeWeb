@@ -9,6 +9,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSelectModule } from '@angular/material/select'
 import { MatDividerModule } from '@angular/material/divider'
+import { MatExpansionModule } from '@angular/material/expansion'
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { MatDividerModule } from '@angular/material/divider'
     MatToolbarModule,
     MatBadgeModule,
     MatSelectModule,
-    MatDividerModule
+    MatDividerModule,
+    MatExpansionModule
   ],
   exports: [
     MatFormFieldModule,
@@ -33,7 +35,8 @@ import { MatDividerModule } from '@angular/material/divider'
     MatToolbarModule,
     MatBadgeModule,
     MatSelectModule,
-    MatDividerModule
+    MatDividerModule,
+    MatExpansionModule
   ]
 })
 
