@@ -1,1 +1,18 @@
-<p>orders works!</p>
+<div *ngFor="let order of orders">
+  <mat-card class="orderCard">
+    <mat-card-title>Order Id: {{ order.orderId }}</mat-card-title>
+    <mat-card-subtitle>Order Date: {{ order.orderDate | date  }}</mat-card-subtitle>
+    <mat-card-content *ngFor="let item of order.items">
+      <mat-divider inset></mat-divider>
+      <section [routerLink]="['/product', item.productId]" class="itemSection">
+        <div class="itemSubSection itemDetailSection">
+          <h2>{{ item.productName }}</h2>
+          <mat-card-subtitle>Category: {{ item.productCategory }}</mat-card-subtitle>
+        </div>
+        <div class="itemSubSection itemSaleSection">
+          <h2>{{ item.productQuantity }} X {{ item.productPrice | currency:"INR" }}</h2>
+        </div>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</div>

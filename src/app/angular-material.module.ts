@@ -8,6 +8,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSelectModule } from '@angular/material/select'
+import { MatDividerModule } from '@angular/material/divider'
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { MatSelectModule } from '@angular/material/select'
     MatProgressBarModule,
     MatToolbarModule,
     MatBadgeModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDividerModule
   ],
   exports: [
     MatFormFieldModule,
@@ -30,7 +32,8 @@ import { MatSelectModule } from '@angular/material/select'
     MatProgressBarModule,
     MatToolbarModule,
     MatBadgeModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDividerModule
   ]
 })
 
