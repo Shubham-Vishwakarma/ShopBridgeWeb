@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router'
 import { ProductService } from '../../services/products/product.service'
+import { CartService } from '../../services/cart/cart.service'
 import { Product } from '../../models/product'
+import { Item } from '../../models/item'
 
 @Component({
   selector: 'app-product-single',
@@ -17,6 +19,7 @@ export class ProductSingleComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private productService: ProductService,
+    private cartService: CartService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -38,8 +41,18 @@ export class ProductSingleComponent implements OnInit {
             this.productId = (Number)(paramMap.get('productId') as string);
         }
       });
+  }
 
-
+  addToCart(): void {
+    const cartItem: Item = {
+      itemId: -1,
+      productId: this.product.id,
+      productQuantity: this.product.quantity,
+      productPrice: this.product.price,
+      productName: this.product.name,
+      productCategory: this.product.category
+    }
+    this.cartService.addToCart(cartItem);
   }
 
 }

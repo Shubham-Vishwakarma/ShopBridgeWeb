@@ -1,0 +1,37 @@
+.cartItemCard {
+  margin: 4px;
+}
+
+.itemSection {
+  display: flex;
+}
+
+.itemSection h2 {
+  margin: 0;
+}
+
+.itemSection .itemDetailSection h2:hover {
+  color: blue;
+}
+
+.itemSubSection {
+  flex: 1;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.itemSaleSection {
+  text-align: right;
+  padding-right: 16px;
+}
+
+.cartItemCard button{
+  width: 10em;
+  height: 3em;
+  font-size: 1.5em;
+  align-self: right;
+}
+
+.buyButtonDiv {
+  text-align: right;
+}

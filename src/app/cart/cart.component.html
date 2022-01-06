@@ -1,1 +1,20 @@
-<p>cart works!</p>
+<div *ngIf="cartItems.length > 0">
+  <mat-card class="cartItemCard" >
+    <mat-card-content *ngFor="let item of cartItems">
+      <section [routerLink]="['/product', item.productId]" class="itemSection">
+        <div class="itemSubSection itemDetailSection">
+          <h2>{{ item.productName }}</h2>
+          <mat-card-subtitle>Category: {{ item.productCategory }}</mat-card-subtitle>
+        </div>
+        <div class="itemSubSection itemSaleSection">
+          <h2>{{ item.productQuantity }} X {{ item.productPrice | currency:"INR" }}</h2>
+        </div>
+      </section>
+      <mat-divider inset></mat-divider>
+    </mat-card-content>
+
+    <div class="buyButtonDiv">
+      <button mat-raised-button color="warn">Buy</button>
+    </div>
+  </mat-card>
+</div>
