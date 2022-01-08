@@ -10,6 +10,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatSelectModule } from '@angular/material/select'
 import { MatDividerModule } from '@angular/material/divider'
 import { MatExpansionModule } from '@angular/material/expansion'
+import { MatTabsModule } from '@angular/material/tabs'
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { MatExpansionModule } from '@angular/material/expansion'
     MatBadgeModule,
     MatSelectModule,
     MatDividerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTabsModule
   ],
   exports: [
     MatFormFieldModule,
@@ -36,7 +38,8 @@ import { MatExpansionModule } from '@angular/material/expansion'
     MatBadgeModule,
     MatSelectModule,
     MatDividerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTabsModule
   ]
 })
 

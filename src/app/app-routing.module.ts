@@ -6,10 +6,11 @@ import { ProductSingleComponent } from './products/product-single/product-single
 import { AuthGuard } from './auth.guard';
 import { OrdersComponent } from './orders/orders.component';
 import { CartComponent } from './cart/cart.component';
+import { AccountComponent } from './account/account.component';
 
 const routes: Routes = [
   { path: '', component: ProductsComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'account', component: AccountComponent },
   { path: 'product/:productId', component: ProductSingleComponent },
   { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
   { path: 'cart', component: CartComponent, canActivate: [AuthGuard] }

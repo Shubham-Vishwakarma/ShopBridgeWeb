@@ -16,6 +16,7 @@ import { ProductSingleComponent } from './products/product-single/product-single
 import { OrdersComponent } from './orders/orders.component';
 import { CartComponent } from './cart/cart.component';
 import { AuthInterceptor } from './auth-interceptor.interceptor';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AuthInterceptor } from './auth-interceptor.interceptor';
     ProductSingleComponent,
     OrdersComponent,
     CartComponent,
+    AccountComponent,
   ],
   imports: [
     BrowserModule,

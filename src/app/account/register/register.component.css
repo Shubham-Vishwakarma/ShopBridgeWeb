@@ -1,0 +1,18 @@
+.registerFormContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px;
+}
+
+@media screen and (min-width: 600px) {
+  .registerForm {
+    padding: 16px;
+    width: 50%;
+  }
+}
+
+.registerForm mat-form-field {
+  width: 100%;
+}
