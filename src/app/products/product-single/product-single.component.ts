@@ -51,7 +51,10 @@ export class ProductSingleComponent implements OnInit {
   }
 
   buyNow(): void {
-    this.addOneToCart();
+    const items = this.cartService.getCart().filter(p => p.productId === this.product.id);
+
+    if(items.length === 0)
+      this.addOneToCart();
     this.router.navigate(["/cart"])
   }
 
