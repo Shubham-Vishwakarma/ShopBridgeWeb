@@ -1,3 +1,6 @@
+<div *ngIf="orders.length <= 0">
+  <p>No Orders present</p>
+</div>
 <div *ngFor="let order of orders">
   <mat-card class="orderCard">
     <div class="orderCardHeader">
