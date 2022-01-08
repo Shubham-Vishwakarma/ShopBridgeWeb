@@ -32,6 +32,19 @@
   align-self: right;
 }
 
+.actionButtons {
+  display: flex;
+}
+
+.actionButtons .actionButton {
+  flex: 1;
+}
+
 .buyButtonDiv {
   text-align: right;
 }
+
+.discardButtonDiv {
+  text-align: left;
+}
+

@@ -50,6 +50,11 @@ export class ProductSingleComponent implements OnInit {
 
   }
 
+  buyNow(): void {
+    this.addOneToCart();
+    this.router.navigate(["/cart"])
+  }
+
   addToCart(): void {
     this.countInCart++;
     const cartItem: Item = {
@@ -64,13 +69,16 @@ export class ProductSingleComponent implements OnInit {
   }
 
   addOneToCart(): void {
-    this.countInCart++;
 
     const items = this.cartService.getCart().filter(p => p.productId === this.product.id);
 
     if(items.length === 1) {
+      this.countInCart++;
       const item: Item = items[0];
       item.productQuantity = this.countInCart;
+    }
+    else {
+      this.addToCart();
     }
 
   }

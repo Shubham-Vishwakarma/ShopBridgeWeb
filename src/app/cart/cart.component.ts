@@ -57,4 +57,9 @@ export class CartComponent implements OnInit {
     }
   }
 
+  discardItems(): void {
+    this.cartService.clearCart();
+    this.cartItems = this.cartService.getCart();
+  }
+
 }

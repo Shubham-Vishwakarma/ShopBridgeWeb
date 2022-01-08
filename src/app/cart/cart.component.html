@@ -13,8 +13,14 @@
       <mat-divider inset></mat-divider>
     </mat-card-content>
 
-    <div class="buyButtonDiv">
-      <button mat-raised-button color="warn" (click)="buyItems()">Buy</button>
+    <div class="actionButtons">
+      <div class="actionButton discardButtonDiv">
+        <button mat-raised-button color="warn" (click)="discardItems()">Discard</button>
+      </div>
+
+      <div class="actionButton buyButtonDiv">
+        <button mat-raised-button color="warn" (click)="buyItems()">Buy</button>
+      </div>
     </div>
   </mat-card>
 </div>
