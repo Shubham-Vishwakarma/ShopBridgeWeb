@@ -20,8 +20,11 @@
       </mat-expansion-panel>
     </mat-accordion>
     <div>
-      <button mat-raised-button color="primary" (click)="addToCart()">Add to Cart</button>
-      <button mat-raised-button color="warn">Buy</button>
+      <button *ngIf="countInCart > 0" class="secButton addButton" mat-raised-button color="primary" (click)="removeOneFromCart()">-</button>
+      <span *ngIf="countInCart > 0" class="productCount">{{ countInCart }}</span>
+      <button *ngIf="countInCart > 0" class="secButton subButton" mat-raised-button color="primary" (click)="addOneToCart()" >+</button>
+      <button *ngIf="countInCart <= 0" mat-raised-button class="mainButton" color="primary" (click)="addToCart()">Add to Cart</button>
+      <button mat-raised-button class="mainButton" color="warn" [routerLink]="['/cart']">Buy</button>
     </div>
   </div>
 </div>

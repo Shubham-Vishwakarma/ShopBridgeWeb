@@ -42,12 +42,26 @@
   padding: 0;
 }
 
-.productDetalSection div{
-  margin-top: 2em;
+.productDetalSection .mainButton{
+  width: 10em;
+  height: 3em;
+  font-size: 1.5em;
+  margin: 0.5em;
 }
 
-.productDetalSection button{
+.productDetalSection .addSubDiv {
   width: 10em;
+}
+
+.productDetalSection .productCount{
+  height: 3em;
+  font-size: 1.5em;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+}
+
+.productDetalSection .secButton{
+  width: 1em;
   height: 3em;
   font-size: 1.5em;
   margin: 0.5em;

@@ -16,6 +16,7 @@ export class ProductSingleComponent implements OnInit {
   productId!: number
   product!: Product
   categoryProducts!: Product[]
+  countInCart: number = 0;
 
   constructor(private route: ActivatedRoute,
     private productService: ProductService,
@@ -32,6 +33,11 @@ export class ProductSingleComponent implements OnInit {
         this.router.navigate(["/"])
 
       this.categoryProducts = this.products.filter(p => p.category === this.product.category && p.id !== this.product.id);
+
+      const items = this.cartService.getCart().filter(p => p.productId === this.product.id);
+      if(items.length === 1)
+        this.countInCart = items[0].productQuantity;
+
     });
 
     this.route.paramMap
@@ -41,18 +47,44 @@ export class ProductSingleComponent implements OnInit {
             this.productId = (Number)(paramMap.get('productId') as string);
         }
       });
+
   }
 
   addToCart(): void {
+    this.countInCart++;
     const cartItem: Item = {
       itemId: -1,
       productId: this.product.id,
-      productQuantity: this.product.quantity,
+      productQuantity: this.countInCart,
       productPrice: this.product.price,
       productName: this.product.name,
       productCategory: this.product.category
     }
     this.cartService.addToCart(cartItem);
+  }
+
+  addOneToCart(): void {
+    this.countInCart++;
+
+    const items = this.cartService.getCart().filter(p => p.productId === this.product.id);
+
+    if(items.length === 1) {
+      const item: Item = items[0];
+      item.productQuantity = this.countInCart;
+    }
+
+  }
+
+  removeOneFromCart(): void {
+    this.countInCart--;
+
+    const items = this.cartService.getCart().filter(p => p.productId === this.product.id);
+
+    if(items.length === 1) {
+      const item: Item = items[0];
+      item.productQuantity = this.countInCart;
+    }
+
   }
 
 }
