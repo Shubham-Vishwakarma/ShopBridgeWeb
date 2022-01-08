@@ -15,14 +15,7 @@ export class OrderService {
   }
 
   postOrders(orderPost: OrderPost) {
-    console.log(orderPost);
-    this.httpClient.post('http://localhost:5135/api/order', orderPost)
-      .subscribe((result: any) => {
-        console.log(result);
-      },
-      (error: any) => {
-        console.log(error);
-      });
+    return this.httpClient.post('http://localhost:5135/api/order', orderPost);
   }
 
 }

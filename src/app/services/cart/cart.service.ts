@@ -26,4 +26,9 @@ export class CartService {
     return this.cartListener.asObservable();
   }
 
+  public clearCart() {
+    this.cartItems = []
+    this.cartListener.next(this.cartItems.length);
+  }
+
 }
