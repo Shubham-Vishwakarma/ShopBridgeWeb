@@ -1,3 +1,6 @@
+<div *ngIf="cartItems.length <= 0">
+  <p>You have no items in the cart.</p>
+</div>
 <div *ngIf="cartItems.length > 0">
   <mat-card class="cartItemCard" >
     <mat-card-content *ngFor="let item of cartItems">

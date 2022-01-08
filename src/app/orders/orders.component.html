@@ -1,6 +1,11 @@
 <div *ngFor="let order of orders">
   <mat-card class="orderCard">
-    <mat-card-title>Order Id: {{ order.orderId }}</mat-card-title>
+    <div class="orderCardHeader">
+      <mat-card-title class="orderCardHeaderItem">Order Id: {{ order.orderId }}</mat-card-title>
+      <div class="orderCardHeaderItem delivered">
+        <span>Delivered</span>
+      </div>
+    </div>
     <mat-card-subtitle>Order Date: {{ order.orderDate | date  }}</mat-card-subtitle>
     <mat-card-content *ngFor="let item of order.items">
       <mat-divider inset></mat-divider>

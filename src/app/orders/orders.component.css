@@ -2,6 +2,26 @@
   margin: 4px;
 }
 
+.orderCard .orderCardHeader {
+  display: flex;
+}
+
+.orderCard .orderCardHeaderItem {
+  flex: 1
+}
+
+.orderCard .delivered {
+  text-align: end;
+}
+
+.orderCard .delivered span {
+  font-size: 1.5em;
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: green;
+}
+
 .itemSection {
   display: flex;
 }
