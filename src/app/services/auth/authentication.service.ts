@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, catchError } from 'rxjs/operators'
 import { User } from 'src/app/models/user';
 import { Subject, Observable } from 'rxjs';
 
@@ -39,7 +38,22 @@ export class AuthenticationService {
 
   login(email: string, password: string) {
     return this.http
-        .post<User>('http://localhost:5135/api/Auth/login',{email, password})
+        .post<User>('http://localhost:5135/api/Auth/login',{ email, password })
+        .subscribe((result: User) => {
+          this.saveAuthData(result);
+          this.authStatusListener.next(true)
+          this.isAuthenticated = true;
+        },
+        (error: any) => {
+          this.user = null;
+          this.authStatusListener.next(false)
+          this.isAuthenticated = false;
+        });
+  }
+
+  register(name: string, email: string, password: string) {
+    return this.http
+        .post<User>('http://localhost:5135/api/Auth/register', { name, email, password })
         .subscribe((result: User) => {
           this.saveAuthData(result);
           this.authStatusListener.next(true)
